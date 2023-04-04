@@ -32,6 +32,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A7C5D3D29DC5B8000636F37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A7C5D3E29DC5B8700636F37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A7C5D4029DC5B9F00636F37 /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A7C5D3F29DC5B9300636F37 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6A7C5D4029DC5B9F00636F37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6AF14C2229DC56EC00240A23 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +80,9 @@
 		6AF14C2D29DC56EC00240A23 /* GeoCacheApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A7C5D3F29DC5B9300636F37 /* Controller */,
+				6A7C5D3E29DC5B8700636F37 /* View */,
+				6A7C5D3D29DC5B8000636F37 /* Model */,
 				6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */,
 				6AF14C3029DC56EC00240A23 /* ContentView.swift */,
 				6AF14C3229DC56EE00240A23 /* Assets.xcassets */,
