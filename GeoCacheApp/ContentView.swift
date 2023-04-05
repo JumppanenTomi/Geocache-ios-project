@@ -10,17 +10,24 @@ import MapKit
 
 
 struct ContentView: View {
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 60.192059, longitude: 24.945831), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+    @StateObject var manager = LocationManager()
+    @State var tracking: MapUserTrackingMode = .follow
+
         
     var body: some View {
-        ZStack {
-            Map(coordinateRegion: $region,
-                showsUserLocation: true, userTrackingMode: .constant(.follow)
+        ZStack(alignment: .bottom) {
+            Map(
+               coordinateRegion: $manager.region,
+               interactionModes: MapInteractionModes.all,
+               showsUserLocation: true,
+               userTrackingMode: $tracking
             )
-            Spacer()
             
-            Button(action: {}){
-                Image(systemName: "location.circle").font(.system(size:40)).offset(x:150, y:300)
+            Button(action: {
+                print("clicked")
+                
+            }){
+                Image(systemName: "location.circle").font(.system(size:40)).padding(.bottom , 40.0).offset(x: /*@START_MENU_TOKEN@*/150.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/-10.0/*@END_MENU_TOKEN@*/)
                             }
         }
         
