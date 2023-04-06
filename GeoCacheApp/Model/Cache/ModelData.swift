@@ -9,10 +9,10 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject{
-    @Published var caches: [Cache] = load("landmarkData.json")
+    @Published var caches: [Cache] = load("cacheData.json")
 }
 
-var caches: [Cache] = load("landmarkData.json")
+var caches: [Cache] = load("cacheData.json")
 
 func load<T: Decodable>(_ filename: String) -> T{
     let data: Data
