@@ -2,7 +2,7 @@
 //  LocationManager.swift
 //  GeoCacheApp
 //
-//  Created by iosdev on 5.4.2023.
+//
 //
 
 import MapKit
@@ -30,5 +30,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         }
         
     }
+    
     
 }

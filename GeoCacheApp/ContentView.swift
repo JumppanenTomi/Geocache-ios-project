@@ -8,7 +8,6 @@
 import SwiftUI
 import MapKit
 
-
 struct ContentView: View {
     @StateObject var manager = LocationManager()
     @State var tracking: MapUserTrackingMode = .follow
@@ -17,20 +16,20 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Map(
-               coordinateRegion: $manager.region,
-               interactionModes: MapInteractionModes.all,
-               showsUserLocation: true,
-               userTrackingMode: $tracking
+                coordinateRegion: $manager.region,
+                interactionModes: MapInteractionModes.all,
+                showsUserLocation: true,
+                userTrackingMode: $tracking
             )
             
             Button(action: {
                 print("clicked")
+                tracking = .follow
                 
-            }){
-                Image(systemName: "location.circle").font(.system(size:40)).padding(.bottom , 40.0).offset(x: /*@START_MENU_TOKEN@*/150.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/-10.0/*@END_MENU_TOKEN@*/)
-                            }
+            },label: {Image(systemName: "location.circle").font(.system(size:40))
+                
+            }).padding( .bottom, 60).offset(x: 140)
         }
-        
     }
 
 }

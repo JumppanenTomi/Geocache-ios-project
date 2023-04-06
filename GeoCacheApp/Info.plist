@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Hey! We need to know where you are to show you the closest GeoCaches. </string>
+	<string>Hey! We need to know your location to show you the closest GeoCaches. </string>
 </dict>
 </plist>
