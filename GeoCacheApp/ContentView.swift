@@ -5,11 +5,10 @@ import MapKit
 struct ContentView: View {
     @StateObject var manager = LocationManager()
     @State var tracking: MapUserTrackingMode = .follow
-        @State private var searchText: String = ""
+    @State private var searchText: String = ""
     @State private var isRecording: Bool = false
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
-
-        
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             Map(
@@ -23,36 +22,38 @@ struct ContentView: View {
                 print("clicked")
                 tracking = .follow
                 
-            },label: {Image(systemName: "location.circle").font(.system(size:40))
-                
-            }).padding( .bottom, 60).offset(x: 140)
-        
-        VStack {
-            HStack {
-                TextField("Search", text: $searchText)
-                    .padding(7)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(8)
-                    .padding(.horizontal)
-
-                Button(action: {
-                    if isRecording {
-                        speechRecognizer.stopRecording()
-                    } else {
-                        speechRecognizer.startRecording { (text, error) in
-                            if let text = text {
-                                self.searchText = text
+            }, label: {
+                Image(systemName: "location.circle").font(.system(size: 40))
+            }).padding(.bottom, 60).offset(x: 140)
+            
+            VStack {
+                HStack {
+                    TextField("Search", text: $searchText)
+                        .padding(7)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .padding(.horizontal)
+                    
+                    Button(action: {
+                        if isRecording {
+                            speechRecognizer.stopRecording()
+                        } else {
+                            speechRecognizer.startRecording { (text, error) in
+                                if let text = text {
+                                    self.searchText = text
+                                }
                             }
                         }
+                        isRecording.toggle()
+                    }) {
+                        Image(systemName: isRecording ? "stop.fill" : "mic.fill")
+                            .padding()
                     }
-                    isRecording.toggle()
-                }) {
-                    Image(systemName: isRecording ? "stop.fill" : "mic.fill")
-                        .padding()
                 }
-                    Spacer()
+                Spacer()
+            }
+        }
     }
-
 }
 
 class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
