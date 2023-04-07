@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A57563A29E0331900A0F4BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6AF14C2B29DC56EC00240A23 /* GeoCacheApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCacheApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCacheAppApp.swift; sourceTree = "<group>"; };
 		6AF14C3029DC56EC00240A23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		6AF14C2D29DC56EC00240A23 /* GeoCacheApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A57563A29E0331900A0F4BF /* Info.plist */,
 				6A7C5D3F29DC5B9300636F37 /* Controller */,
 				6A7C5D3E29DC5B8700636F37 /* View */,
 				6A7C5D3D29DC5B8000636F37 /* Model */,
@@ -301,6 +303,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GeoCacheApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeoCacheApp/Info.plist;
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"This app uses speech recognition to convert your speech into text for searching.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +333,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GeoCacheApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GeoCacheApp/Info.plist;
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"This app uses speech recognition to convert your speech into text for searching.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
