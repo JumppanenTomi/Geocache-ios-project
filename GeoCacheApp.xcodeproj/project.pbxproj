@@ -7,19 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A28782E29DF14B200961A20 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28782D29DF14B200961A20 /* Cache.swift */; };
+		6A28783129DF173300961A20 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28783029DF173300961A20 /* ModelData.swift */; };
+		6A28783329DF1D9C00961A20 /* cacheData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A28783229DF1D9C00961A20 /* cacheData.json */; };
+		6A28783529DF2AC000961A20 /* detailsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28783429DF2AC000961A20 /* detailsSheet.swift */; };
+		6A7C5D4229DC607500636F37 /* horizontalListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C5D4129DC607500636F37 /* horizontalListItem.swift */; };
+		6A7C5D4529DDD32B00636F37 /* horizontalCacheList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7C5D4429DDD32B00636F37 /* horizontalCacheList.swift */; };
+		6AD7619229DF43A20072080C /* IntToDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7619129DF43A10072080C /* IntToDots.swift */; };
 		6AF14C2F29DC56EC00240A23 /* GeoCacheAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */; };
 		6AF14C3129DC56EC00240A23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF14C3029DC56EC00240A23 /* ContentView.swift */; };
 		6AF14C3329DC56EE00240A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF14C3229DC56EE00240A23 /* Assets.xcassets */; };
 		6AF14C3629DC56EE00240A23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF14C3529DC56EE00240A23 /* Preview Assets.xcassets */; };
+		6AF14C3E29DDAEAD00240A23 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF14C3D29DDAEAD00240A23 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A57563A29E0331900A0F4BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6A28782D29DF14B200961A20 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		6A28783029DF173300961A20 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		6A28783229DF1D9C00961A20 /* cacheData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cacheData.json; sourceTree = "<group>"; };
+		6A28783429DF2AC000961A20 /* detailsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsSheet.swift; sourceTree = "<group>"; };
+		6A7C5D4129DC607500636F37 /* horizontalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horizontalListItem.swift; sourceTree = "<group>"; };
+		6A7C5D4429DDD32B00636F37 /* horizontalCacheList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horizontalCacheList.swift; sourceTree = "<group>"; };
+		6AD7619129DF43A10072080C /* IntToDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntToDots.swift; path = GeoCacheApp/View/Components/IntToDots.swift; sourceTree = SOURCE_ROOT; };
 		6AF14C2B29DC56EC00240A23 /* GeoCacheApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCacheApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCacheAppApp.swift; sourceTree = "<group>"; };
 		6AF14C3029DC56EC00240A23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6AF14C3229DC56EE00240A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AF14C3529DC56EE00240A23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6AF14C3C29DD98F800240A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6AF14C3D29DDAEAD00240A23 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,9 +50,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A28782B29DF136600961A20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A28783229DF1D9C00961A20 /* cacheData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A28782F29DF170C00961A20 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				6A28782D29DF14B200961A20 /* Cache.swift */,
+				6A28783029DF173300961A20 /* ModelData.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		6A7C5D3D29DC5B8000636F37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6A28782F29DF170C00961A20 /* Cache */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -58,8 +93,19 @@
 		6A7C5D4029DC5B9F00636F37 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6A7C5D4129DC607500636F37 /* horizontalListItem.swift */,
+				6A7C5D4429DDD32B00636F37 /* horizontalCacheList.swift */,
+				6A28783429DF2AC000961A20 /* detailsSheet.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		6A7C5D4329DC9C0400636F37 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6AD7619129DF43A10072080C /* IntToDots.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		6AF14C2229DC56EC00240A23 = {
@@ -81,12 +127,16 @@
 		6AF14C2D29DC56EC00240A23 /* GeoCacheApp */ = {
 			isa = PBXGroup;
 			children = (
-				6A57563A29E0331900A0F4BF /* Info.plist */,
+
+				6AF14C3C29DD98F800240A23 /* Info.plist */,
+				6A28782B29DF136600961A20 /* Resources */,
+				6A7C5D4329DC9C0400636F37 /* Utilities */,
 				6A7C5D3F29DC5B9300636F37 /* Controller */,
 				6A7C5D3E29DC5B8700636F37 /* View */,
 				6A7C5D3D29DC5B8000636F37 /* Model */,
 				6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */,
 				6AF14C3029DC56EC00240A23 /* ContentView.swift */,
+				6AF14C3D29DDAEAD00240A23 /* LocationManager.swift */,
 				6AF14C3229DC56EE00240A23 /* Assets.xcassets */,
 				6AF14C3429DC56EE00240A23 /* Preview Content */,
 			);
@@ -161,6 +211,7 @@
 			files = (
 				6AF14C3629DC56EE00240A23 /* Preview Assets.xcassets in Resources */,
 				6AF14C3329DC56EE00240A23 /* Assets.xcassets in Resources */,
+				6A28783329DF1D9C00961A20 /* cacheData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AF14C3129DC56EC00240A23 /* ContentView.swift in Sources */,
+				6A28782E29DF14B200961A20 /* Cache.swift in Sources */,
+				6AD7619229DF43A20072080C /* IntToDots.swift in Sources */,
 				6AF14C2F29DC56EC00240A23 /* GeoCacheAppApp.swift in Sources */,
+				6AF14C3E29DDAEAD00240A23 /* LocationManager.swift in Sources */,
+				6A7C5D4529DDD32B00636F37 /* horizontalCacheList.swift in Sources */,
+				6A28783529DF2AC000961A20 /* detailsSheet.swift in Sources */,
+				6A7C5D4229DC607500636F37 /* horizontalListItem.swift in Sources */,
+				6A28783129DF173300961A20 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +375,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.techTitans.metropolia.GeoCacheApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,6 +408,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.techTitans.metropolia.GeoCacheApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

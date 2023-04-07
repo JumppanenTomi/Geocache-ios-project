@@ -1,12 +1,32 @@
 import SwiftUI
 import Speech
+import MapKit
 
 struct ContentView: View {
-    @State private var searchText: String = ""
+    @StateObject var manager = LocationManager()
+    @State var tracking: MapUserTrackingMode = .follow
+        @State private var searchText: String = ""
     @State private var isRecording: Bool = false
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
 
+        
     var body: some View {
+        ZStack(alignment: .bottom) {
+            Map(
+                coordinateRegion: $manager.region,
+                interactionModes: MapInteractionModes.all,
+                showsUserLocation: true,
+                userTrackingMode: $tracking
+            )
+            
+            Button(action: {
+                print("clicked")
+                tracking = .follow
+                
+            },label: {Image(systemName: "location.circle").font(.system(size:40))
+                
+            }).padding( .bottom, 60).offset(x: 140)
+        
         VStack {
             HStack {
                 TextField("Search", text: $searchText)
@@ -30,10 +50,9 @@ struct ContentView: View {
                     Image(systemName: isRecording ? "stop.fill" : "mic.fill")
                         .padding()
                 }
-            }
-            Spacer()
-        }
+                    Spacer()
     }
+
 }
 
 class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
