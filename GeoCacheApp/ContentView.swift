@@ -29,6 +29,7 @@ struct ContentView: View {
             },label: {Image(systemName: "location.circle").font(.system(size:40))
                 
             }).padding( .bottom, 60).offset(x: 140)
+        
         }
     }
 
