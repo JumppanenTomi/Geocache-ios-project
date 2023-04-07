@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A57563A29E0331900A0F4BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6A28782D29DF14B200961A20 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		6A28783029DF173300961A20 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		6A28783229DF1D9C00961A20 /* cacheData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cacheData.json; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		6AF14C2D29DC56EC00240A23 /* GeoCacheApp */ = {
 			isa = PBXGroup;
 			children = (
+
 				6AF14C3C29DD98F800240A23 /* Info.plist */,
 				6A28782B29DF136600961A20 /* Resources */,
 				6A7C5D4329DC9C0400636F37 /* Utilities */,
@@ -360,6 +362,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoCacheApp/Info.plist;
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"This app uses speech recognition to convert your speech into text for searching.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -392,6 +395,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoCacheApp/Info.plist;
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"This app uses speech recognition to convert your speech into text for searching.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
