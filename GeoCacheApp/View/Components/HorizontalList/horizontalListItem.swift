@@ -53,6 +53,7 @@ struct horizontalListItem: View {
             }
             .padding()
             .background(Rectangle().fill(Color.white).cornerRadius(15).shadow(radius: 3))
+            .padding()
     }
 }
 

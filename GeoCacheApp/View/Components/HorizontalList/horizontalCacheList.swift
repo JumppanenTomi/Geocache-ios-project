@@ -18,9 +18,7 @@ struct horizontalCacheList: View {
                     ForEach(modelData.caches){cache in
                         horizontalListItem(id: cache.id, title: cache.name, difficulty: cache.difficulty, size: cache.size, isClickable: true)
                             .frame(
-                                width: CGFloat(Int(geometry.size.width * 0.9)),
-                                height: 200
-                            )
+                                width: CGFloat(Int(geometry.size.width * 0.9))                            )
                             .onTapGesture{
                                 selectedCache = cache
                             }
