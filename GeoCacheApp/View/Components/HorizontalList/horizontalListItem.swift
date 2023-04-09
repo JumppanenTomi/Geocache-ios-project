@@ -34,13 +34,18 @@ struct horizontalListItem: View {
                         }
                     }
                     Divider()
-                    Text("Difficulty: \(difficulty)/5")
-                        .font(.subheadline)
-                        .padding(5)
-                    
-                    Text("Size: \(size)")
-                        .font(.subheadline)
-                        .padding(5)
+                    HStack{
+                        Text("Difficulty: ")
+                            .font(.subheadline)
+                            .padding(5)
+                        IntToDots(value: difficulty, scale: 5, fontSize: 8, iconSpacing: CGFloat(2))
+                    }
+                    HStack{
+                        Text("Size: ")
+                            .font(.subheadline)
+                            .padding(5)
+                        IntToDots(value: size, scale: 5, fontSize: 8, iconSpacing: CGFloat(2))
+                    }
                     Spacer()
                 }
                 if isClickable{

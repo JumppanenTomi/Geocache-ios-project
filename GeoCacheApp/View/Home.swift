@@ -14,20 +14,22 @@ struct Home: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(
-                coordinateRegion: $manager.region,
-                interactionModes: MapInteractionModes.all,
-                showsUserLocation: true,
-                userTrackingMode: $tracking
-            )
-            
+            HStack {
+                Map(
+                    coordinateRegion: $manager.region,
+                    interactionModes: MapInteractionModes.all,
+                    showsUserLocation: true,
+                    userTrackingMode: $tracking
+                )
+            }
+            .ignoresSafeArea()
             Button(action: {
                 print("clicked")
                 tracking = .follow
                 
             }, label: {
                 Image(systemName: "location.circle").font(.system(size: 40))
-            }).padding(.bottom, 60).offset(x: 140)
+            }).padding(.top, 60).offset(x: 140)
             
             VStack {
                 searchBar()
