@@ -29,7 +29,7 @@ struct Home: View {
                 
             }, label: {
                 Image(systemName: "location.circle").font(.system(size: 40))
-            }).padding(.top, 60).offset(x: 140)
+            }).padding(.bottom, 200).offset(x: 140)
             
             VStack {
                 searchBar()
