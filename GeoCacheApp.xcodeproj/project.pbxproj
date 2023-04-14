@@ -15,6 +15,8 @@
 		6A27AEDF29E317FA00A40D93 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A27AEDE29E317FA00A40D93 /* Messages.swift */; };
 		6A27AEE129E3180600A40D93 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A27AEE029E3180600A40D93 /* Profile.swift */; };
 		6A27AEE929E928A100A40D93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A27AEEB29E928A100A40D93 /* Localizable.strings */; };
+		6A27AEEE29E92EC300A40D93 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A27AEED29E92EC300A40D93 /* Settings.swift */; };
+		6A27AEF129E92FDB00A40D93 /* LocaleSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A27AEF029E92FDB00A40D93 /* LocaleSelect.swift */; };
 		6A28782E29DF14B200961A20 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28782D29DF14B200961A20 /* Cache.swift */; };
 		6A28783129DF173300961A20 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28783029DF173300961A20 /* ModelData.swift */; };
 		6A28783329DF1D9C00961A20 /* cacheData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A28783229DF1D9C00961A20 /* cacheData.json */; };
@@ -40,6 +42,8 @@
 		6A27AEE029E3180600A40D93 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		6A27AEEA29E928A100A40D93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6A27AEEC29E928DC00A40D93 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6A27AEED29E92EC300A40D93 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		6A27AEF029E92FDB00A40D93 /* LocaleSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleSelect.swift; sourceTree = "<group>"; };
 		6A28782D29DF14B200961A20 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		6A28783029DF173300961A20 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		6A28783229DF1D9C00961A20 /* cacheData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cacheData.json; sourceTree = "<group>"; };
@@ -78,6 +82,14 @@
 			path = HorizontalList;
 			sourceTree = "<group>";
 		};
+		6A27AEEF29E92FBD00A40D93 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6A27AEF029E92FDB00A40D93 /* LocaleSelect.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		6A28782B29DF136600961A20 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +126,7 @@
 				6A27AEDE29E317FA00A40D93 /* Messages.swift */,
 				6A27AEE029E3180600A40D93 /* Profile.swift */,
 				6ACFDDC429E4BFD90057DCA7 /* MapView.swift */,
+				6A27AEED29E92EC300A40D93 /* Settings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +141,7 @@
 		6A7C5D4029DC5B9F00636F37 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6A27AEEF29E92FBD00A40D93 /* Settings */,
 				6A27AED329E2079100A40D93 /* searchBar.swift */,
 				6A27AED529E2089700A40D93 /* HorizontalList */,
 			);
@@ -258,12 +272,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A27AEF129E92FDB00A40D93 /* LocaleSelect.swift in Sources */,
 				6AF14C3129DC56EC00240A23 /* ContentView.swift in Sources */,
 				6A28782E29DF14B200961A20 /* Cache.swift in Sources */,
 				6AD7619229DF43A20072080C /* IntToDots.swift in Sources */,
 				6AF14C2F29DC56EC00240A23 /* GeoCacheAppApp.swift in Sources */,
 				6A27AEDD29E317E800A40D93 /* AddCache.swift in Sources */,
 				6AF14C3E29DDAEAD00240A23 /* LocationManager.swift in Sources */,
+				6A27AEEE29E92EC300A40D93 /* Settings.swift in Sources */,
 				6A27AED729E208D700A40D93 /* SpeechToText.swift in Sources */,
 				6A27AEDF29E317FA00A40D93 /* Messages.swift in Sources */,
 				6A27AED429E2079100A40D93 /* searchBar.swift in Sources */,

@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  GeoCacheApp
+
+  Created by iosdev on 14.4.2023.
+  
+*/
+
+//Horizontal list/details
+"Difficulty: " = "Vaikeus: ";
+"Size: " = "Koko: ";
+"Track" = "Etsi";
+"Mark found" = "Merkitse löydetyksi";
+"Cache was hidden by %@." = "Kätkön on piilottanut %@.";
+
+//Search bar
+"Search" =  "Etsi";
+
+//Settings
+"Settings" = "Asetukset";
+"Select Language" = "Valitse kieli (vaatii uudelleen käynnistyksen)";
