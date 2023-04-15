@@ -21,6 +21,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         manager.startUpdatingLocation()
     }
     
+    func zoomBack(){
+        region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.last.map {
             region = MKCoordinateRegion(

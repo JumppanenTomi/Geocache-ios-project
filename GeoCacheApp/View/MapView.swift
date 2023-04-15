@@ -12,9 +12,12 @@ struct MapView: View {
     
     @StateObject var manager = LocationManager()
     @State var tracking: MapUserTrackingMode = .follow
+    @EnvironmentObject var modelData: ModelData
+
     
     
     var body: some View {
+       
         Map(
             coordinateRegion: $manager.region,
             interactionModes: MapInteractionModes.all,
@@ -25,6 +28,7 @@ struct MapView: View {
         Button(action: {
             print("clicked")
             self.tracking = .follow
+            manager.zoomBack()
             
         }, label: {
             Image(systemName: "location.circle").font(.system(size: 40))
