@@ -6,17 +6,6 @@
 //
 
 // Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-// Profile.swift
-import SwiftUI
-
-// Profile.swift
 import SwiftUI
 
 struct Profile: View {
