@@ -19,3 +19,7 @@
 //Settings
 "Settings" = "Settings";
 "Select Language" = "Select Language (requires restart)";
+
+//Profile
+"Found" = "Caches Found";
+"Created" = "Caches Created";
