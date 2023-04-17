@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Pins: View {
+    
     var body: some View {
         Text("View for caches")
     }

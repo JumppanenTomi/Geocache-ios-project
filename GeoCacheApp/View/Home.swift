@@ -12,7 +12,7 @@ struct Home: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            MapView()
+            MapView().environmentObject(ModelData())
             HStack {
                 VStack {
                     searchBar()
