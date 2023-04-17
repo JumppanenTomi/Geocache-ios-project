@@ -25,7 +25,10 @@ struct MapView: View {
             userTrackingMode: $tracking,
             annotationItems: modelData.caches
         ){
-            MapMarker(coordinate: $0.locationCoordinates)}
+            MapAnnotation(coordinate: $0.locationCoordinates) {
+                cacheMapAnnotation();
+            }
+        }
         .ignoresSafeArea()
         
         Button(action: {
