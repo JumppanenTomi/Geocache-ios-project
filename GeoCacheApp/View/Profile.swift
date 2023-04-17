@@ -13,9 +13,23 @@ struct Profile: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     @State private var editingUsername = false
+    @State private var isPresented = false
 
     var body: some View {
         VStack(spacing: 20) {
+            HStack {
+                Spacer()
+                Button(action: {
+                            isPresented = true
+                        }, label: {
+                            Image(systemName: "gear")
+                                .font(.system(size: 24))
+                        })
+                        .sheet(isPresented: $isPresented, content: {
+                            Settings()
+                    })
+            }
+            .padding()
             Image(uiImage: userViewModel.profileImage)
                 .resizable()
                 .scaledToFill()
@@ -26,7 +40,6 @@ struct Profile: View {
                 .onTapGesture {
                     showingImagePicker = true
                 }
-
             if editingUsername {
                 TextField("", text: $userViewModel.name)
                     .multilineTextAlignment(.center)
@@ -75,8 +88,8 @@ struct Profile: View {
                 }
             }
             .padding(.horizontal)
+            Spacer()
         }
-        .padding(.top, 50)
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: $inputImage)
         }
