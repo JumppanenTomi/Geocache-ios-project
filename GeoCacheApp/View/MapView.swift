@@ -22,11 +22,13 @@ struct MapView: View {
             coordinateRegion: $manager.region,
             interactionModes: MapInteractionModes.all,
             showsUserLocation: true,
-            userTrackingMode: $tracking
-        ).ignoresSafeArea()
+            userTrackingMode: $tracking,
+            annotationItems: modelData.caches
+        ){
+            MapMarker(coordinate: $0.locationCoordinates)}
+        .ignoresSafeArea()
         
         Button(action: {
-            print("clicked")
             self.tracking = .follow
             manager.zoomBack()
             
