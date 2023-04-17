@@ -19,3 +19,7 @@
 //Settings
 "Settings" = "Asetukset";
 "Select Language" = "Valitse kieli (vaatii uudelleen käynnistyksen)";
+
+//Profile
+"Found" = "Kätköä Löydetty";
+"Created" = "Kätköä Luotu";
