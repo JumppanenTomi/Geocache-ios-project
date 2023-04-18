@@ -24,9 +24,14 @@ struct MapView: View {
             showsUserLocation: true,
             userTrackingMode: $tracking,
             annotationItems: modelData.caches
-        ){
-            MapAnnotation(coordinate: $0.locationCoordinates) {
-                cacheMapAnnotation();
+        ){cache in
+            MapAnnotation(coordinate: cache.locationCoordinates) {
+                cacheMapAnnotation()
+                    .onTapGesture {
+                    print(cache.name)
+                        cache.s
+                    
+                }
             }
         }
         .ignoresSafeArea()
