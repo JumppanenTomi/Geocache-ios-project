@@ -10,11 +10,12 @@ import MapKit
 
 struct MapView: View {
     
-    @StateObject var manager = LocationManager()
     @State var tracking: MapUserTrackingMode = .follow
     @EnvironmentObject var modelData: ModelData
+    @ObservedObject var manager: LocationManager
+    @Binding var selectedCache: Cache?
+   
 
-    
     
     var body: some View {
        
@@ -29,15 +30,17 @@ struct MapView: View {
                 cacheMapAnnotation()
                     .onTapGesture {
                     print(cache.name)
-                        cache.s
-                    
+                        selectedCache = cache
+                        manager.region.center = cache.locationCoordinates
+                        manager.region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+
                 }
             }
         }
         .ignoresSafeArea()
         
         Button(action: {
-            self.tracking = .follow
+            manager.region.center = manager.location.coordinate
             manager.zoomBack()
             
         }, label: {
@@ -48,7 +51,7 @@ struct MapView: View {
     
     struct MapView_Preview: PreviewProvider {
         static var previews: some View {
-            MapView()
+            MapView(manager: LocationManager(), selectedCache: .constant(nil))
         }
     }
 }

@@ -9,15 +9,17 @@ import SwiftUI
 import MapKit
 
 struct Home: View {
-    
+    @State private var selectedCache: Cache? = nil
+    @StateObject var manager = LocationManager()
+
     var body: some View {
         ZStack(alignment: .bottom) {
-            MapView().environmentObject(ModelData())
+            MapView(manager: manager, selectedCache: $selectedCache).environmentObject(ModelData())
             HStack {
                 VStack {
                     searchBar()
                     Spacer()
-                    horizontalCacheList()
+                    horizontalCacheList(manager: manager, selectedCache: $selectedCache)
                         .environmentObject(ModelData())
                         .frame(
                             height: 200

@@ -12,6 +12,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     @Published var region = MKCoordinateRegion()
     private let manager = CLLocationManager()
+    @Published var location = CLLocation()
     
     override init() {
         super.init()
@@ -27,6 +28,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+               self.location = location
+               manager.stopUpdatingLocation()
         locations.last.map {
             region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
