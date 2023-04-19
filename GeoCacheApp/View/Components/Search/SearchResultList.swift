@@ -14,18 +14,11 @@ struct SearchResultList: View {
     var body: some View {
         ScrollView(.vertical) {
             ForEach(searchResults, id: \.id) { matchingCache in
-                SearchItem(id: matchingCache.id, title: matchingCache.name)
+                SearchItem(id: matchingCache.id, title: matchingCache.name, difficulty: matchingCache.difficulty, size: matchingCache.size, coordinates: matchingCache.coordinates)
             }
         }
         .onAppear {
             searchResults = searchCache(searchText: searchText)
         }
-    }
-}
-
-
-struct SearchResultList_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchResultList(searchText: "Turtle")
     }
 }

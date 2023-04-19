@@ -12,6 +12,8 @@ struct horizontalListItem: View {
     var title: String
     var difficulty: Int
     var size: Int
+    var longitude: Double
+    var latitude: Double
     var isClickable: Bool = false
 
     var body: some View {
@@ -34,6 +36,8 @@ struct horizontalListItem: View {
                         }
                     }
                     Divider()
+                    Text(calculateDistance(latitude: latitude, longitude: longitude))
+                        .padding(5)
                     HStack{
                         Text("Difficulty: ")
                             .font(.subheadline)
@@ -57,7 +61,7 @@ struct horizontalListItem: View {
                 }
             }
             .padding()
-            .background(Rectangle().fill(Color.white).cornerRadius(15).shadow(radius: 3))
+            .background(Rectangle().fill(Color.white).cornerRadius(15))
             .padding()
     }
 }
@@ -65,6 +69,6 @@ struct horizontalListItem: View {
 
 struct horizontalListItem_Previews: PreviewProvider {
     static var previews: some View {
-        horizontalListItem(id: 1, title: "This is paragraph is shown in preview", difficulty: 3, size: 1, isClickable: true)
+        horizontalListItem(id: 1, title: "This is paragraph is shown in preview", difficulty: 3, size: 1, longitude: -122.4194, latitude: 37.7749, isClickable: true)
     }
 }

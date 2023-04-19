@@ -16,7 +16,7 @@ struct horizontalCacheList: View {
             ScrollView(.horizontal){
                 LazyHStack{
                     ForEach(modelData.caches){cache in
-                        horizontalListItem(id: cache.id, title: cache.name, difficulty: cache.difficulty, size: cache.size, isClickable: true)
+                        horizontalListItem(id: cache.id, title: cache.name, difficulty: cache.difficulty, size: cache.size, longitude: cache.locationCoordinates.longitude, latitude: cache.locationCoordinates.latitude, isClickable: true)
                             .frame(
                                 width: CGFloat(Int(geometry.size.width * 0.9))                            )
                             .onTapGesture{
