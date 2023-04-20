@@ -9,10 +9,10 @@ import MapKit
 import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
-    
-    @Published var region = MKCoordinateRegion()
     private let manager = CLLocationManager()
+    @Published var region = MKCoordinateRegion()
     @Published var location = CLLocation()
+    
     
     override init() {
         super.init()
@@ -20,11 +20,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
     }
     
     func zoomBack(){
-        region.span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-
+        region.span = MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -34,7 +35,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         locations.last.map {
             region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+                span: MKCoordinateSpan(latitudeDelta: 0.006, longitudeDelta: 0.006)
             )
         }
         

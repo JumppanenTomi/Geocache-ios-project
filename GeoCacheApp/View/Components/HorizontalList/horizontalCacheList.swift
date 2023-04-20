@@ -10,9 +10,9 @@ import SwiftUI
 struct horizontalCacheList: View {
     @EnvironmentObject var modelData: ModelData
     //@State private var selectedCache: Cache? = nil
-    @ObservedObject var manager: LocationManager
+    @EnvironmentObject var manager: LocationManager
     @Binding var selectedCache: Cache?
-    
+
     var body: some View {
         GeometryReader{geometry in
             ScrollView(.horizontal){
@@ -37,9 +37,4 @@ struct horizontalCacheList: View {
     }
 }
 
-struct horizontalCacheList_Previews: PreviewProvider {
-   static var previews: some View {
-        horizontalCacheList(manager: LocationManager(), selectedCache: .constant(nil))
-            .environmentObject(ModelData())
-    }
-}
+
