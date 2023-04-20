@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		6A27AED329E2079100A40D93 /* searchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBar.swift; sourceTree = "<group>"; };
-		6A27AED629E208D700A40D93 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechToText.swift; path = GeoCacheApp/SpeechToText.swift; sourceTree = SOURCE_ROOT; };
+		6A27AED629E208D700A40D93 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeechToText.swift; path = GeoCacheApp/Utilities/SpeechToText.swift; sourceTree = SOURCE_ROOT; };
 		6A27AED829E2099900A40D93 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		6A27AEDA29E317CC00A40D93 /* Pins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pins.swift; sourceTree = "<group>"; };
 		6A27AEDC29E317E800A40D93 /* AddCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCache.swift; sourceTree = "<group>"; };
@@ -61,13 +61,13 @@
 		6A3B0C7429EBDF6200E9D65F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		6A7C5D4129DC607500636F37 /* horizontalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horizontalListItem.swift; sourceTree = "<group>"; };
 		6A7C5D4429DDD32B00636F37 /* horizontalCacheList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horizontalCacheList.swift; sourceTree = "<group>"; };
-		6A86CB5529EDB963009BC9B7 /* SearchCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCache.swift; path = GeoCacheApp/Model/SearchCache.swift; sourceTree = SOURCE_ROOT; };
+		6A86CB5529EDB963009BC9B7 /* SearchCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCache.swift; path = GeoCacheApp/Controller/SearchCache.swift; sourceTree = SOURCE_ROOT; };
 		6A86CB5A29EECBD3009BC9B7 /* SearchResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultList.swift; sourceTree = "<group>"; };
 		6A86CB5C29EFE3DE009BC9B7 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
-		6A86CB5E29F011D0009BC9B7 /* calculateDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = calculateDistance.swift; path = GeoCacheApp/View/Components/Search/calculateDistance.swift; sourceTree = SOURCE_ROOT; };
+		6A86CB5E29F011D0009BC9B7 /* calculateDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = calculateDistance.swift; path = GeoCacheApp/Utilities/calculateDistance.swift; sourceTree = SOURCE_ROOT; };
 		6AADED5C29ED652F00BE6F69 /* cacheMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cacheMapAnnotation.swift; sourceTree = "<group>"; };
 		6ACFDDC429E4BFD90057DCA7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		6AD7619129DF43A10072080C /* IntToDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntToDots.swift; path = GeoCacheApp/View/Components/IntToDots.swift; sourceTree = SOURCE_ROOT; };
+		6AD7619129DF43A10072080C /* IntToDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntToDots.swift; path = GeoCacheApp/Utilities/IntToDots.swift; sourceTree = SOURCE_ROOT; };
 		6AF14C2B29DC56EC00240A23 /* GeoCacheApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoCacheApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF14C2E29DC56EC00240A23 /* GeoCacheAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCacheAppApp.swift; sourceTree = "<group>"; };
 		6AF14C3029DC56EC00240A23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
