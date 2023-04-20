@@ -9,8 +9,10 @@ import SwiftUI
 
 struct horizontalCacheList: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var selectedCache: Cache? = nil
-    
+    //@State private var selectedCache: Cache? = nil
+    @EnvironmentObject var manager: LocationManager
+    @Binding var selectedCache: Cache?
+
     var body: some View {
         GeometryReader{geometry in
             ScrollView(.horizontal){
@@ -21,6 +23,8 @@ struct horizontalCacheList: View {
                                 width: CGFloat(Int(geometry.size.width * 0.9))                            )
                             .onTapGesture{
                                 selectedCache = cache
+                                manager.region.center = cache.locationCoordinates
+
                             }
                             .sheet(item: $selectedCache){cache in
                                 detailsSheet(cache: cache)
@@ -33,9 +37,4 @@ struct horizontalCacheList: View {
     }
 }
 
-struct horizontalCacheList_Previews: PreviewProvider {
-   static var previews: some View {
-        horizontalCacheList()
-            .environmentObject(ModelData())
-    }
-}
+

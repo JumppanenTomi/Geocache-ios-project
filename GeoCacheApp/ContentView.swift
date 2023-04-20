@@ -7,6 +7,8 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab){
             Home()
+                .environmentObject(ModelData())
+                .environmentObject(LocationManager())
                 .tabItem{
                     Image(systemName: "house")
                 }
