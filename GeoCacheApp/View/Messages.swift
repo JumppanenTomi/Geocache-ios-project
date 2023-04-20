@@ -9,9 +9,17 @@ import SwiftUI
 
 struct Messages: View {
     var body: some View {
-        Text("View for messaging")
+        NavigationStack{
+            List {
+                NavigationLink(destination: Chat(contact: "John Doe")) {
+                    ContactItems(contact: "John Doe")
+                }
+                .navigationTitle("Contacts")
+            }
+        }
     }
 }
+
 
 struct Messages_Previews: PreviewProvider {
     static var previews: some View {
