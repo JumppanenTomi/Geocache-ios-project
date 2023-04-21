@@ -15,10 +15,16 @@ struct searchBar: View {
     
     var body: some View {
         HStack {
+            if searchText != ""{
+                Button(action: {searchText = ""}) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.red)
+                        .font(.system(size: 14))
+                        .padding(.leading, 10)
+                }
+            }
             TextField("Search", text: $searchText)
-                .padding(7)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
+                .font(.system(size: 14))
                 .padding(.horizontal)
                 .onSubmit {
                     isSearching = true
@@ -42,9 +48,24 @@ struct searchBar: View {
                 isRecording.toggle()
             }) {
                 Image(systemName: isRecording ? "stop.fill" : "mic.fill")
-                    .padding()
+                    .foregroundColor(.blue)
+                    .font(.system(size: 14))
+            }
+            if searchText != ""{
+                Button(action: {}) {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .foregroundColor(.green)
+                        .font(.system(size: 14))
+                        .padding(.leading, 10)
+                }
             }
         }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 50).fill(Color(.systemGray6)))
+                .padding(.vertical, 5)
+                .autocapitalization(.sentences)
+                .padding()
         if isSearching && searchText != ""{
             SearchResultList(searchText: searchText)
         }

@@ -15,6 +15,7 @@ struct Messages: View {
                     ContactItems(contact: "John Doe")
                 }
                 .navigationTitle("Contacts")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
