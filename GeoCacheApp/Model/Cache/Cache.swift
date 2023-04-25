@@ -8,26 +8,46 @@
 import SwiftUI
 import Foundation
 import CoreLocation
+import MapKit
 
 struct Cache: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var difficulty: Int
     var size: Int
-    var author: String
-    var isFeatured: Bool
+    var featured: String?
     var description: String
+    var createdAt: String
+    var updatedAt: String
+    var foundByCurrentUser: Bool
+    var hint: String
+
     
-    private var coordinates: Coordinates
+    var coordinates: Coordinates
+    var user: User
+
     var locationCoordinates: CLLocationCoordinate2D{
         CLLocationCoordinate2D(
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude
+            latitude: Double(coordinates.latitude)!,
+            longitude: Double(coordinates.longitude)!
         )
     }
     
     struct Coordinates: Hashable, Codable{
-        var latitude: Double
-        var longitude: Double
+        var latitude: String
+        var longitude: String
+    }
+
+    struct User: Hashable, Codable {
+        var userID: Int
+        var username: String
+        var password: String
+        var email: String
+    }
+
+    enum CodingKeys: String, CodingKey{
+        case id = "cacheID"
+        case name, difficulty, size,featured, description, createdAt, updatedAt,
+        foundByCurrentUser, hint, coordinates, user
     }
 }
