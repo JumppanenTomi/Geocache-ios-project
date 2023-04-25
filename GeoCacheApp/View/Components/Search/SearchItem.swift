@@ -19,7 +19,7 @@ struct SearchItem: View {
             HStack {
                 Text(title)
                 Spacer()
-                Text(calculateDistance(latitude: coordinates.latitude, longitude: coordinates.longitude))
+                Text(calculateDistance(latitude: Double(coordinates.latitude)!, longitude: Double(coordinates.longitude)!))
                     .font(.subheadline)
             }
             .padding(5)

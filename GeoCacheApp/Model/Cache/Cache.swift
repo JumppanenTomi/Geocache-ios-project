@@ -28,8 +28,8 @@ struct Cache: Hashable, Codable, Identifiable {
 
     var locationCoordinates: CLLocationCoordinate2D{
         CLLocationCoordinate2D(
-            latitude: Double(coordinates.latitude)!,
-            longitude: Double(coordinates.longitude)!
+            latitude: CLLocationDegrees(coordinates.latitude)!,
+            longitude: CLLocationDegrees(coordinates.longitude)!
         )
     }
     

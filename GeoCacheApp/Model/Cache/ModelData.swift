@@ -46,7 +46,7 @@ final class ModelData: ObservableObject{
                 let response = try decoder.decode([Cache].self, from: data)
                 completion(.success(response))
                 
-            } catch {
+                } catch {
                 completion(.failure(error))
             }
         }.resume()
