@@ -1,11 +1,3 @@
-//
-//  Profile.swift
-//  GeoCacheApp
-//
-//  Created by iosdev on 9.4.2023.
-//
-
-// Profile.swift
 import SwiftUI
 
 struct Profile: View {
@@ -13,23 +5,10 @@ struct Profile: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     @State private var editingUsername = false
-    @State private var isPresented = false
+    @State private var editingBio = false
 
     var body: some View {
         VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                Button(action: {
-                            isPresented = true
-                        }, label: {
-                            Image(systemName: "gear")
-                                .font(.system(size: 24))
-                        })
-                        .sheet(isPresented: $isPresented, content: {
-                            Settings()
-                    })
-            }
-            .padding()
             Image(uiImage: userViewModel.profileImage)
                 .resizable()
                 .scaledToFill()
@@ -40,6 +19,7 @@ struct Profile: View {
                 .onTapGesture {
                     showingImagePicker = true
                 }
+
             if editingUsername {
                 TextField("", text: $userViewModel.name)
                     .multilineTextAlignment(.center)
@@ -50,6 +30,7 @@ struct Profile: View {
                     .onSubmit {
                         editingUsername = false
                     }
+                    .transition(.move(edge: .trailing))
             } else {
                 Text(userViewModel.name)
                     .font(.largeTitle)
@@ -57,15 +38,28 @@ struct Profile: View {
                     .onTapGesture {
                         editingUsername = true
                     }
+                    .transition(.move(edge: .trailing))
             }
 
-            TextField("Bio", text: $userViewModel.bio)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                .padding(.vertical, 8)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal)
+            if editingBio {
+                TextField("Bio", text: $userViewModel.bio)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    .onSubmit {
+                        editingBio = false
+                    }
+                    .transition(.move(edge: .trailing))
+            } else {
+                Text(userViewModel.bio)
+                    .font(.headline)
+                    .onTapGesture {
+                        editingBio = true
+                    }
+                    .transition(.move(edge: .trailing))
+            }
 
             HStack(spacing: 80) {
                 VStack {
@@ -73,7 +67,7 @@ struct Profile: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(Color.primary)
-                    Text("Found")
+                    Text("Caches Found")
                         .font(.callout)
                         .foregroundColor(Color.secondary)
                 }
@@ -82,14 +76,15 @@ struct Profile: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(Color.primary)
-                    Text("Created")
+                    Text("Caches Created")
                         .font(.callout)
                         .foregroundColor(Color.secondary)
                 }
             }
             .padding(.horizontal)
-            Spacer()
         }
+        .padding(.top, 50)
+        .animation(.default, value: [editingUsername, editingBio])
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(image: $inputImage)
         }
