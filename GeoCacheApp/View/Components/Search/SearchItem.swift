@@ -6,20 +6,21 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct SearchItem: View {
     var id: Int
     var title: String
     var difficulty: Int
     var size: Int
-    var coordinates: Cache.Coordinates
+    var coordinates: CLLocationCoordinate2D
 
     var body: some View {
         VStack {
             HStack {
                 Text(title)
                 Spacer()
-                Text(calculateDistance(latitude: Double(coordinates.latitude)!, longitude: Double(coordinates.longitude)!))
+                Text(calculateDistance(latitude: coordinates.latitude, longitude: coordinates.longitude))
                     .font(.subheadline)
             }
             .padding(5)
