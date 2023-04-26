@@ -7,24 +7,29 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab){
             Home()
+                .tag(1)
                 .environmentObject(ModelData())
                 .environmentObject(LocationManager())
                 .tabItem{
                     Image(systemName: "house")
                 }
             Pins()
+                .tag(2)
                 .tabItem{
                     Image(systemName: "pin")
                 }
             AddCache()
+                .tag(3)
                 .tabItem{
                     Image(systemName: "plus.circle")
                 }
             Messages()
+                .tag(4)
                 .tabItem{
                     Image(systemName: "message")
                 }
             Profile(userViewModel: userViewModel)
+                .tag(5)
                 .tabItem{
                     Image(systemName: "person.crop.circle.fill")
                 }
