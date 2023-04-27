@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchResultList: View {
     var searchText: String
     @State var searchResults: [MatchingCache] = []
+    @EnvironmentObject var modelData: ModelData
+
     
     var body: some View {
         ScrollView(.vertical) {
@@ -18,7 +20,7 @@ struct SearchResultList: View {
             }
         }
         .onAppear {
-            searchResults = searchCache(searchText: searchText)
+            searchResults = searchCache(searchText: searchText, modelData: modelData)
         }
     }
 }

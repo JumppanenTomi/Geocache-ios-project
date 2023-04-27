@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct Messages: View {
+    @StateObject var messagesController = MessagesController()
+    
     var body: some View {
         NavigationStack{
             List {
-                NavigationLink(destination: Chat(contact: "John Doe")) {
-                    ContactItems(contact: "John Doe")
+                ForEach(messagesController.messages) { message in
+                    NavigationLink(destination: Chat(contact: message.text)) {
+                        ContactItems(contact: message.user.username)
+                    }
                 }
                 .navigationTitle("Contacts")
                 .navigationBarTitleDisplayMode(.inline)
+            }
+            .onAppear{
+                messagesController.fetchMessages()
             }
         }
     }

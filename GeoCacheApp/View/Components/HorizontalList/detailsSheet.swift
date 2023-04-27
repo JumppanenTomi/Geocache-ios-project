@@ -41,7 +41,7 @@ struct detailsSheet: View {
                     Text(cache.description)
                 }
                 Divider()
-                Text("Cache was hidden by \(cache.author).")
+                Text("Cache was hidden by \(cache.user.username).")
             }
             .padding()
     }

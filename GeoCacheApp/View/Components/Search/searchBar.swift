@@ -12,6 +12,8 @@ struct searchBar: View {
     @State private var isRecording: Bool = false
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
     @State private var isSearching: Bool = false
+    @EnvironmentObject var modelData: ModelData
+
     
     var body: some View {
         HStack {
@@ -40,7 +42,7 @@ struct searchBar: View {
                     speechRecognizer.startRecording { (text, error) in
                         if let text = text {
                             self.searchText = text
-                            searchCache(searchText: text)
+                            searchCache(searchText: text, modelData: modelData)
                             isSearching = true
                         }
                     }
