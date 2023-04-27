@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct SearchItem: View {
     var id: Int
     var title: String
     var difficulty: Int
     var size: Int
-    var coordinates: Cache.Coordinates
+    var coordinates: CLLocationCoordinate2D
 
     var body: some View {
         VStack {

@@ -10,10 +10,26 @@ import MapKit
 
 struct Home: View {
     @State var selectedCache: Cache? = nil
+    @EnvironmentObject var modelData: ModelData
+
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            MapView(selectedCache: $selectedCache)
+            MapView(selectedCache: $selectedCache).onAppear(){
+                ModelData.getGeocaches {result in
+                                   switch result {
+                                   case .success(let geocaches):
+                                       // Handle successful response
+                                       print(geocaches)
+                                       DispatchQueue.main.async {
+                                           modelData.caches = geocaches
+                                                   }
+                                   case .failure(let error):
+                                       // Handle error
+                                       print(error)
+                                   }
+                                  }
+            }
                 
             HStack {
                 VStack {
