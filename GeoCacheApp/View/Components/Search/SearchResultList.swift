@@ -24,7 +24,7 @@ struct SearchResultList: View {
                 .padding()
                 .background(Rectangle().fill(Color.white).cornerRadius(15))
             } else {
-                ForEach(searchResults) { matchingCache in
+                ForEach(searchResults.sorted(by: { calculateDistanceDouble(latitude: $0.coordinates.latitude, longitude: $0.coordinates.longitude) < calculateDistanceDouble(latitude: $1.coordinates.latitude, longitude: $1.coordinates.longitude) })) { matchingCache in
                     let coordinates = Cache.Coordinates(latitude: String(matchingCache.coordinates.latitude), longitude: String(matchingCache.coordinates.longitude))
                     SearchItem(id: matchingCache.id, title: matchingCache.name, difficulty: matchingCache.difficulty, size: matchingCache.size, coordinates: matchingCache.coordinates)
                         .onTapGesture{
