@@ -13,6 +13,7 @@ struct searchBar: View {
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
     @State private var isSearching: Bool = false
     @EnvironmentObject var modelData: ModelData
+    @State var selectedCache: MatchingCache? = nil
 
     
     var body: some View {
@@ -69,7 +70,7 @@ struct searchBar: View {
                 .autocapitalization(.sentences)
                 .padding()
         if isSearching && searchText != ""{
-            SearchResultList(searchText: searchText)
+            SearchResultList(searchText: searchText, selectedCache: $selectedCache)
         }
     }
 }

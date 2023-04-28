@@ -4,7 +4,7 @@ import CoreLocation
 
 
 
-struct MatchingCache {
+struct MatchingCache: Identifiable {
     var id: Int
     var name: String
     var difficulty: Int
