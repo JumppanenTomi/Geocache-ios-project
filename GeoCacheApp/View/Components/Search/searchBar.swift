@@ -55,7 +55,7 @@ struct searchBar: View {
                     .font(.system(size: 14))
             }
             if searchText != ""{
-                Button(action: {}) {
+                Button(action: {isSearching = true}) {
                     Image(systemName: "arrow.right.circle.fill")
                         .foregroundColor(.green)
                         .font(.system(size: 14))

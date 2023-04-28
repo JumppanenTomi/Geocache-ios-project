@@ -14,11 +14,6 @@ struct ContentView: View {
                 .tabItem{
                     Image(systemName: "house")
                 }
-            Pins()
-                .tag(2)
-                .tabItem{
-                    Image(systemName: "pin")
-                }
             AddCache()
                 .tag(3)
                 .tabItem{
