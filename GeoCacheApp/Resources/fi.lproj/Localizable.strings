@@ -15,11 +15,29 @@
 
 //Search bar
 "Search" =  "Etsi";
+"No search results found" = "Ei hakutuloksia";
 
 //Settings
 "Settings" = "Asetukset";
 "Select Language" = "Valitse kieli (vaatii uudelleen käynnistyksen)";
 
 //Profile
-"Found" = "Kätköä Löydetty";
-"Created" = "Kätköä Luotu";
+"Bio" = "Kuvaus";
+"Caches Found" = "Kätköä Löydetty";
+"Caches Created" = "Kätköä Luotu";
+
+//Add cache
+"Add Cache" = "Lisää kätkö";
+"Title" = "Otsikko";
+"Description" = "Kuvaus";
+"Your location will be marked as cache hiding spot" = "Tämänhetkinen sijaintisi tullaan merkitsemään kätkön paikaksi";
+"Difficulty" = "Vaikeus";
+"Size" = "Koko";
+"Publish!" = "Julkaise!";
+"Error" = "Virhe";
+"One or more fields is empty." = "Ainakin yksi kentistä on tyhjä.";
+"Fix" = "Korjaa";
+
+//Messages
+"Contacts" = "Kontaktit";
+"Message" = "Viestisi";

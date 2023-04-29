@@ -15,11 +15,29 @@
 
 //Search bar
 "Search" =  "Search";
+"No search results found" = "No search results found";
 
 //Settings
 "Settings" = "Settings";
 "Select Language" = "Select Language (requires restart)";
 
 //Profile
-"Found" = "Caches Found";
-"Created" = "Caches Created";
+"Bio" = "Bio";
+"Caches Found" = "Caches Found";
+"Caches Created" = "Caches Created";
+
+//Add cache
+"Add Cache" = "Add Cache";
+"Title" = "Title";
+"Description" = "Description";
+"Your location will be marked as cache hiding spot" = "Your location will be marked as cache hiding spot";
+"Difficulty" = "Difficulty";
+"Size" = "Size";
+"Publish!" = "Publish!";
+"Error" = "Error";
+"One or more fields is empty." = "One or more fields is empty.";
+"Fix" = "Fix";
+
+//Messages
+"Contacts" = "Contacts";
+"Message" = "Message";

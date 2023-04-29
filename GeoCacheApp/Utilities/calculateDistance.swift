@@ -21,13 +21,12 @@ func calculateDistance(latitude: Double, longitude: Double) -> String {
             distance = userLocation.distance(from: destinationLocation) / 1000 // Convert distance to kilometers
         }
     }
-    
     if distance < 1 {
         let distanceInMeters = Int(distance * 1000)
-        return "\(distanceInMeters) meters away"
+        return "\(distanceInMeters) m"
     } else {
         let formattedDistance = String(format: "%.2f", distance)
-        return "\(formattedDistance) km away"
+        return "\(formattedDistance) km"
     }
 }
 
