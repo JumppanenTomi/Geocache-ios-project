@@ -12,6 +12,9 @@ struct searchBar: View {
     @State private var isRecording: Bool = false
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
     @State private var isSearching: Bool = false
+    @EnvironmentObject var modelData: ModelData
+    @State var selectedCache: MatchingCache? = nil
+
     
     var body: some View {
         HStack {
@@ -40,7 +43,7 @@ struct searchBar: View {
                     speechRecognizer.startRecording { (text, error) in
                         if let text = text {
                             self.searchText = text
-                            searchCache(searchText: text)
+                            searchCache(searchText: text, modelData: modelData)
                             isSearching = true
                         }
                     }
@@ -52,7 +55,7 @@ struct searchBar: View {
                     .font(.system(size: 14))
             }
             if searchText != ""{
-                Button(action: {}) {
+                Button(action: {isSearching = true}) {
                     Image(systemName: "arrow.right.circle.fill")
                         .foregroundColor(.green)
                         .font(.system(size: 14))
@@ -67,7 +70,7 @@ struct searchBar: View {
                 .autocapitalization(.sentences)
                 .padding()
         if isSearching && searchText != ""{
-            SearchResultList(searchText: searchText)
+            SearchResultList(searchText: searchText, selectedCache: $selectedCache)
         }
     }
 }

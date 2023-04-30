@@ -21,12 +21,28 @@ func calculateDistance(latitude: Double, longitude: Double) -> String {
             distance = userLocation.distance(from: destinationLocation) / 1000 // Convert distance to kilometers
         }
     }
-    
     if distance < 1 {
         let distanceInMeters = Int(distance * 1000)
-        return "\(distanceInMeters) meters away"
+        return "\(distanceInMeters) m"
     } else {
         let formattedDistance = String(format: "%.2f", distance)
-        return "\(formattedDistance) km away"
+        return "\(formattedDistance) km"
     }
+}
+
+func calculateDistanceDouble(latitude: Double, longitude: Double) -> Double {
+    let userLocation = CLLocationManager()
+    var distance: CLLocationDistance = 0
+    
+    if userLocation.authorizationStatus == .authorizedWhenInUse || userLocation.authorizationStatus == .authorizedAlways {
+        if let location = userLocation.location {
+            let userCoordinate = location.coordinate
+            let destinationCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)
+            let destinationLocation = CLLocation(latitude: destinationCoordinate.latitude, longitude: destinationCoordinate.longitude)
+            distance = userLocation.distance(from: destinationLocation) / 1000 // Convert distance to kilometers
+        }
+    }
+    
+    return distance * 1000
 }
