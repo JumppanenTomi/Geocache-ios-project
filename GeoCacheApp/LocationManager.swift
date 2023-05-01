@@ -28,7 +28,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         
     }
     func offsetCenter(center: CLLocationCoordinate2D)-> CLLocationCoordinate2D{
-        let offsetLat: CLLocationDegrees =  -0.001
+        let offsetLat: CLLocationDegrees =  -0.002
         let offsetLng: CLLocationDegrees = 0
         let offsetCoordinate = CLLocationCoordinate2D(latitude: center.latitude + offsetLat, longitude: center.longitude + offsetLng)
         return offsetCoordinate
