@@ -1,22 +1,34 @@
-//
-//  Settings.swift
-//  GeoCacheApp
-//
-//  Created by iosdev on 14.4.2023.
-//
-
 import SwiftUI
 
 struct Settings: View {
+    @Binding var isLoggedIn: Bool
+    
     var body: some View {
-        List{
-            LocaleSelect()
+        List {
+            Section {
+                LocaleSelect()
+            }
+            
+            Section {
+                Button(action: {
+                    // Perform logout action
+                    isLoggedIn = false
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Logout")
+                            .foregroundColor(.red)
+                        Spacer()
+                    }
+                }
+            }
         }
+        .listStyle(GroupedListStyle())
     }
 }
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        Settings(isLoggedIn: .constant(true))
     }
 }
