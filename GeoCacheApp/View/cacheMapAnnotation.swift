@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct cacheMapAnnotation: View {
-    @State private var isTapped = false
-
     var body: some View {
         
         VStack(spacing: 0) {
@@ -19,7 +17,6 @@ struct cacheMapAnnotation: View {
           Image(systemName: "arrowtriangle.down.fill")
             .font(.caption)
             .offset(x: 0, y: -5).onTapGesture {
-                self.isTapped.toggle()
             }
         }
     }

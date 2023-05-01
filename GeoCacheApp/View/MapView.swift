@@ -28,7 +28,7 @@ struct MapView: View {
             MapAnnotation(coordinate: cache.locationCoordinates) {
                 cacheMapAnnotation()
                     .onTapGesture {
-                        manager.region.center = cache.locationCoordinates
+                        manager.region.center = manager.offsetCenter(center: cache.locationCoordinates) 
                         manager.zoomBack()
                         selectedCache = cache
                             }.foregroundColor((selectedCache == cache) ? .red : .purple).shadow(radius: 1)

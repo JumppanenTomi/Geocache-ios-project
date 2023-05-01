@@ -23,7 +23,7 @@ struct horizontalCacheList: View {
                                 width: CGFloat(Int(geometry.size.width * 0.9))                            )
                             .onTapGesture{
                                 selectedCache = cache
-                                manager.region.center = cache.locationCoordinates
+                                manager.region.center = manager.offsetCenter(center: cache.locationCoordinates)
 
                             }
                             .sheet(item: $selectedCache){cache in
