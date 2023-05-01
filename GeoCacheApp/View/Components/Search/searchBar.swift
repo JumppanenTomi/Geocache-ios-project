@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct searchBar: View {
-    @State private var searchText: String = ""
+    @State var searchText: String = ""
     @State private var isRecording: Bool = false
     @ObservedObject private var speechRecognizer = SpeechRecognizer()
     @State private var isSearching: Bool = false
@@ -70,7 +70,7 @@ struct searchBar: View {
                 .autocapitalization(.sentences)
                 .padding()
         if isSearching && searchText != ""{
-            SearchResultList(searchText: searchText, selectedCache: $selectedCache)
+            SearchResultList(searchText: $searchText, selectedCache: $selectedCache)
         }
     }
 }

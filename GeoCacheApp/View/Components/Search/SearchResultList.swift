@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct SearchResultList: View {
-    var searchText: String
+    @Binding var searchText: String
     @State var searchResults: [MatchingCache] = []
     @EnvironmentObject var modelData: ModelData
     @Binding var selectedCache: MatchingCache?
@@ -30,6 +30,7 @@ struct SearchResultList: View {
                         .onTapGesture{
                             selectedCache = matchingCache
                             manager.region.center = manager.offsetCenter(center: matchingCache.coordinates)
+                            searchText = ""
                             
                         }.shadow(radius: 0.5)
                         .sheet(item: $selectedCache){matchingCache in

@@ -20,7 +20,7 @@ struct Home: View {
                                    switch result {
                                    case .success(let geocaches):
                                        // Handle successful response
-                                       print(geocaches)
+                                       //print(geocaches)
                                        DispatchQueue.main.async {
                                            modelData.caches = geocaches
                                                    }
