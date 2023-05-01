@@ -33,12 +33,12 @@ struct Home: View {
                 
             HStack {
                 VStack {
-                    searchBar()
+                    searchBar().shadow(radius: 0.5)
                     Spacer()
                     horizontalCacheList(selectedCache: $selectedCache)
                         .frame(
                             height: 200
-                        )
+                        ).shadow(radius: 0.5)
                 }
             }
         }

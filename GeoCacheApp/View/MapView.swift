@@ -32,7 +32,7 @@ struct MapView: View {
                         manager.zoomBack()
                         selectedCache = cache
 
-                }
+                    }.shadow(radius: 1)
             }
         }
         .ignoresSafeArea()
@@ -43,7 +43,7 @@ struct MapView: View {
             
         }, label: {
             Image(systemName: "location.circle").font(.system(size: 40))
-        }).padding(.bottom, 200).offset(x: 140)
+        }).padding(.bottom, 200).offset(x: 140).shadow(radius: 0.5)
         
     }
     
