@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
 final class ModelData: ObservableObject{
@@ -49,6 +50,100 @@ final class ModelData: ObservableObject{
                 } catch {
                 completion(.failure(error))
             }
+        }.resume()
+    }
+    
+    
+    func foundCache(cacheId: Int) {
+                let url = URL(string: "https://gocache-api.herokuapp.com/api/logs")!
+                // Create the request
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                
+                // Set the request headers
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODIxNjA4Mzh9.dC5cFdXHQN_sIs1fBmuIuXngp-qYSyzqcH4recUCdiE", forHTTPHeaderField: "Authorization")
+                
+                // Create the request body
+                let requestBody: [String: Any] = ["logType": "found","logComment": "Cache found","userID": 1,"cacheID": cacheId]
+                
+                // Serialize the request body to JSON
+                let jsonData = try! JSONSerialization.data(withJSONObject: requestBody, options: [])
+                
+                // Set the request body
+                request.httpBody = jsonData
+                
+                // Send the request
+                URLSession.shared.dataTask(with: request) { data, response, error in
+                    // Handle the response
+                    if let error = error {
+                        print("Error: \(error.localizedDescription)")
+                        return
+                    }
+                    guard let data = data else {
+                        print("No data returned from server")
+                        return
+                    }
+                    print(String(data: data, encoding: .utf8)!)
+                }.resume()
+    }
+    
+    func deleteLog(userId: Int, cacheId: Int) {
+        guard let url = URL(string: "https://gocache-api.herokuapp.com/api/logs/") else {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let headers = [
+            "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODIxNjA4Mzh9.dC5cFdXHQN_sIs1fBmuIuXngp-qYSyzqcH4recUCdiE",
+            "Accept": "application/json"
+        ]
+        request.allHTTPHeaderFields = headers
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let logs = try decoder.decode([Log].self, from: data)
+                let logID = logs.first(where: { $0.userID == userId && $0.cacheID == cacheId })?.logID
+                if let logID = logID {
+                    let url = URL(string: "https://gocache-api.herokuapp.com/api/logs/\(logID)")!
+                    print(url)
+                        // Create the request
+                        var request = URLRequest(url: url)
+                        request.httpMethod = "DELETE"
+                        
+                        // Set the request headers
+                        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                        request.addValue("application/json", forHTTPHeaderField: "Accept")
+                        request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODIxNjA4Mzh9.dC5cFdXHQN_sIs1fBmuIuXngp-qYSyzqcH4recUCdiE", forHTTPHeaderField: "Authorization")
+
+                                                        
+                        // Send the request
+                        URLSession.shared.dataTask(with: request) { data, response, error in
+                            // Handle the response
+                            if let error = error {
+                                print("Error: \(error.localizedDescription)")
+                                return
+                            }
+                            guard let data = data else {
+                                print("No data returned from server")
+                                return
+                            }
+                            print(String(data: data, encoding: .utf8)!)
+                        }.resume()
+                }
+            } catch {
+                print("Error decoding logs: \(error)")
+            }
+
         }.resume()
     }
 }

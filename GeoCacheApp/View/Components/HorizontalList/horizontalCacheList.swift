@@ -27,7 +27,7 @@ struct horizontalCacheList: View {
 
                             }
                             .sheet(item: $selectedCache){cache in
-                                detailsSheet(cache: cache)
+                                detailsSheet(cacheId: cache.id)
                                     .presentationDetents([.medium, .large])
                             }
                     }

@@ -16,21 +16,8 @@ struct Home: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             MapView(selectedCache: $selectedCache).onAppear(){
-                ModelData.getGeocaches {result in
-                                   switch result {
-                                   case .success(let geocaches):
-                                       // Handle successful response
-                                       //print(geocaches)
-                                       DispatchQueue.main.async {
-                                           modelData.caches = geocaches
-                                                   }
-                                   case .failure(let error):
-                                       // Handle error
-                                       print(error)
-                                   }
-                                  }
+                reloadCaches()
             }
-                
             HStack {
                 VStack {
                     searchBar().shadow(radius: 0.5)
@@ -40,6 +27,21 @@ struct Home: View {
                             height: 200
                         ).shadow(radius: 0.5)
                 }
+            }
+        }
+    }
+    func reloadCaches(){
+        ModelData.getGeocaches {result in
+            switch result {
+                case .success(let geocaches):
+                // Handle successful response
+                print(geocaches)
+                DispatchQueue.main.async {
+                    modelData.caches = geocaches
+                }
+                case .failure(let error):
+                // Handle error
+                print(error)
             }
         }
     }
