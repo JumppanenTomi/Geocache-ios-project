@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct cacheMapAnnotation: View {
+    @State private var isTapped = false
+
     var body: some View {
+        
         VStack(spacing: 0) {
           Image(systemName: "cube.box.fill")
             .font(.title)
-            .foregroundColor(.pink)
-          
+
           Image(systemName: "arrowtriangle.down.fill")
             .font(.caption)
-            .foregroundColor(.pink)
-            .offset(x: 0, y: -5)
+            .offset(x: 0, y: -5).onTapGesture {
+                self.isTapped.toggle()
+            }
         }
     }
 }

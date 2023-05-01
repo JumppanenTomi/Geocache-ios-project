@@ -31,8 +31,7 @@ struct MapView: View {
                         manager.region.center = cache.locationCoordinates
                         manager.zoomBack()
                         selectedCache = cache
-
-                    }.shadow(radius: 1)
+                            }.foregroundColor((selectedCache == cache) ? .red : .purple).shadow(radius: 1)
             }
         }
         .ignoresSafeArea()
