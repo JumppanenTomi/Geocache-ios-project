@@ -30,3 +30,24 @@ struct MessageModel: Codable, Identifiable {
             return String(messageID)
         }
 }
+
+struct Message2Model: Codable, Identifiable {
+    let messageID: Int
+    let senderID: Int
+    let recipientID: Int
+    let text: String
+    let createdAt: String
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case messageID = "messageID"
+        case senderID = "senderID"
+        case recipientID = "recipientID"
+        case text = "text"
+        case createdAt = "createdAt"
+        case updatedAt = "updatedAt"
+    }
+    var id: String {
+            return String(messageID)
+        }
+}
