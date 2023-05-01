@@ -32,7 +32,7 @@ struct SearchResultList: View {
                             manager.region.center = matchingCache.coordinates
                         }
                         .sheet(item: $selectedCache){matchingCache in
-                            detailsSheet(cache: Cache(id: matchingCache.id, name: matchingCache.name, difficulty: matchingCache.difficulty, size: matchingCache.size, description: matchingCache.description, createdAt: matchingCache.createdAt, updatedAt: matchingCache.updatedAt, foundByCurrentUser: matchingCache.foundByCurrentUser, hint: matchingCache.hint, coordinates: coordinates, user: matchingCache.user))
+                            detailsSheet(cacheId: matchingCache.id)
                                 .presentationDetents([.medium, .large])
                         }
                 }
