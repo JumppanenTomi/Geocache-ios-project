@@ -11,26 +11,58 @@ struct Messages: View {
     @StateObject var messagesController = MessagesController()
     
     var body: some View {
-        NavigationStack{
-            List {
-                ForEach(messagesController.messages) { message in
-                    NavigationLink(destination: Chat(contact: message.text)) {
-                        ContactItems(contact: message.user.username)
+            NavigationView {
+                ZStack {
+                    Color(UIColor.systemGroupedBackground)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    VStack {
+                        HStack {
+                            Text("Chats")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.leading, 20)
+                                .padding(.top, 10)
+                            
+                            Spacer()
+                            NavigationLink(destination: UserView()) {
+                                Image(systemName: "square.and.pencil")
+                                    .font(.title)
+                                    .foregroundColor(.blue)
+                                    .padding(.trailing, 20)
+                                    .padding(.top, 10)
+                            }
+                            
+                        }
+                        
+                        Divider()
+                        
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(messagesController.previews) { preview in
+                                    NavigationLink(destination: ChatView(contact: preview.user.username, recipientID: preview.recipientID)) {
+                                        ChatPreviewListItem(contact: preview.user.username, message: preview.text, timestamp: preview.createdAt)
+                                    }
+                                }
+                            }
+                            .padding(.top, 10)
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 60)
+                        }
                     }
                 }
-                .navigationTitle("Contacts")
-                .navigationBarTitleDisplayMode(.inline)
-            }
-            .onAppear{
-                messagesController.fetchMessages()
+                .navigationBarHidden(true)
+                .onAppear {
+                    messagesController.fetchPreviews()
+                }
             }
         }
-    }
 }
 
-
+/*
 struct Messages_Previews: PreviewProvider {
     static var previews: some View {
         Messages()
     }
 }
+*/
