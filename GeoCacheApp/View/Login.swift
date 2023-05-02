@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct Login: View {
-    @State private var email = ""
+    @State private var username = ""
     @State private var password = ""
     @Binding var isLoggedIn: Bool
+    @StateObject private var authAPI = AuthAPI()
     
     var body: some View {
         NavigationView {
@@ -20,7 +21,7 @@ struct Login: View {
                     .frame(width: 150, height: 150)
                     .padding(.bottom, 50)
                 
-                TextField("Email", text: $email)
+                TextField("Username", text: $username)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(5)
@@ -36,10 +37,19 @@ struct Login: View {
                 
                 Button(action: {
                     // Perform login action
-                    if email != "" && password != "" {
-                        isLoggedIn = true
+                    if username != "" && password != "" {
+                        authAPI.login(username: username, password: password) { success, token in
+                            if success, let token = token {
+                                DispatchQueue.main.async {
+                                    // Save the token and update isLoggedIn
+                                    // You may want to save the token securely using Keychain
+                                    isLoggedIn = true
+                                }
+                            } else {
+                                print("Login failed")
+                            }
+                        }
                     }
-
                 }) {
                     Text("Login")
                         .font(.headline)
