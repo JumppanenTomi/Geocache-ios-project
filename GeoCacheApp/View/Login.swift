@@ -5,6 +5,7 @@ struct Login: View {
     @State private var password = ""
     @Binding var isLoggedIn: Bool
     @StateObject private var authAPI = AuthAPI()
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         NavigationView {
@@ -42,7 +43,7 @@ struct Login: View {
                             if success, let token = token {
                                 DispatchQueue.main.async {
                                     // Save the token and update isLoggedIn
-                                    // You may want to save the token securely using Keychain
+                                    userViewModel.name = username
                                     isLoggedIn = true
                                 }
                             } else {
