@@ -30,13 +30,15 @@ struct SearchResultList: View {
                         .onTapGesture{
                             selectedCache = matchingCache
                             manager.region.center = manager.offsetCenter(center: matchingCache.coordinates)
-                            searchText = ""
+
                             
-                        }.shadow(radius: 0.5)
+                        }
                         .sheet(item: $selectedCache){matchingCache in
                             detailsSheet(cacheId: matchingCache.id)
                                 .presentationDetents([.medium, .large])
-                        }
+                        }.onDisappear(){
+                            selectedCache = nil
+                        }.shadow(radius: 0.5)
                 }
             }
         }

@@ -29,6 +29,9 @@ struct horizontalCacheList: View {
                             .sheet(item: $selectedCache){cache in
                                 detailsSheet(cacheId: cache.id)
                                     .presentationDetents([.medium, .large])
+                            }.onDisappear(){
+                                selectedCache = nil
+                                
                             }
                     }
                 }
