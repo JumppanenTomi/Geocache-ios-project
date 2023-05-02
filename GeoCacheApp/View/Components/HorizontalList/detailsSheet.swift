@@ -51,8 +51,17 @@ struct detailsSheet: View {
                 }
                 Divider()
                 ScrollView{
-                    Text(modelData.caches[index].description)
+                    VStack(alignment: .leading){
+                        Text("Description")
+                            .font(.title)
+                        Text(modelData.caches[index].description)
+                        Divider()
+                        Text("Hint")
+                            .font(.title)
+                        Text(modelData.caches[index].hint)
+                    }
                 }
+                Spacer()
                 Divider()
                 Text("Cache was hidden by \(modelData.caches[index].user.username).")
             }
