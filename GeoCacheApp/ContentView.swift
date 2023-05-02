@@ -8,7 +8,6 @@ struct ContentView: View {
     @StateObject private var modelData: ModelData = ModelData()
     @StateObject private var locationManager: LocationManager = LocationManager()
 
-
     var body: some View {
         Group {
             if isLoggedIn {
@@ -67,6 +66,7 @@ struct ContentView: View {
                 }
             } else {
                 Login(isLoggedIn: $isLoggedIn)
+                    .environmentObject(userViewModel)
             }
         }
     }
