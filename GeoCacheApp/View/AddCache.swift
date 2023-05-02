@@ -21,6 +21,7 @@ struct AddCache: View {
     @State private var isEditingDif = false
     @State private var isEditingSize = false
     @State private var userLocation: CLLocationCoordinate2D?
+    @State private var selectedCoordinate: CLLocationCoordinate2D?
 
     
     var body: some View {
@@ -90,18 +91,15 @@ struct AddCache: View {
                     Text("\(size)")
                     .foregroundColor(isEditingSize ? .red : .blue)
                 }.padding(.bottom)
-                Text("Your location will be marked as cache hiding spot")
-                    .font(.title2)
-                    .padding()
-                UserLocationMap(coordinate: userLocation)
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(height: 300)
-                    .cornerRadius(16)
-                    .onAppear {
-                        getUserLocation { coordinate in
-                        self.userLocation = coordinate
-                    }
-                    }.padding(.bottom, 80)
+                     .onAppear {
+                         getUserLocation { coordinate in
+                             self.userLocation = coordinate
+                         }
+                     }
+                 if let userCoordinate = userLocation {
+                     MapSelector(coordinate: $selectedCoordinate, userCoordinate: userCoordinate)
+                         .padding(.bottom, 80)
+                 }
              }.padding([.top, .leading, .trailing])
              VStack {
                  Spacer()
@@ -121,22 +119,24 @@ struct AddCache: View {
     }
     
     func submitForm(){
-        if(title.isEmpty || desc.isEmpty){
+        if(title.isEmpty || desc.isEmpty || hint.isEmpty){
             alertTitle = "Error"
             alertDesc = "One or more fields is empty."
             alertBtn = "Fix"
             showAlert = true
         } else{
-            ModelData().addCache(name: title, desc: desc, dif: difficulty, size: size, hint: hint, latitude: userLocation?.latitude ?? 0.0, longitude: userLocation?.longitude ?? 0.0)
-            alertTitle = "Success!"
-            alertDesc = "Your new cache is now published"
-            alertBtn = "Nice!"
-            showAlert = true
-            title = ""
-            desc = ""
-            hint = ""
-            difficulty = 1
-            size = 1
+            if let selectedCoordinate = selectedCoordinate {
+                ModelData().addCache(name: title, desc: desc, dif: difficulty, size: size, hint: hint, latitude: selectedCoordinate.latitude, longitude: selectedCoordinate.longitude)
+                alertTitle = "Success!"
+                alertDesc = "Your new cache is now published"
+                alertBtn = "Nice!"
+                showAlert = true
+                title = ""
+                desc = ""
+                hint = ""
+                difficulty = 1
+                size = 1
+            }
         }
     }
 }
