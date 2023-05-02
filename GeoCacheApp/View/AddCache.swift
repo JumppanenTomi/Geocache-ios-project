@@ -9,8 +9,12 @@ import SwiftUI
 import MapKit
 
 struct AddCache: View {
+    @State private var alertTitle: String = ""
+    @State private var alertDesc: String = ""
+    @State private var alertBtn: String = "Okay"
     @State private var title: String = ""
     @State private var desc: String = ""
+    @State private var hint: String = ""
     @State private var difficulty: Int = 1
     @State private var size: Int = 1
     @State private var showAlert = false
@@ -43,6 +47,15 @@ struct AddCache: View {
                     RoundedRectangle(cornerRadius: 16).fill(Color(.systemGray6)))
                 .padding(.vertical, 5)
                 .autocapitalization(.sentences)
+                 HStack {
+                     TextField("Hint", text: $hint)
+                         .padding(.horizontal)
+                 }
+                 .padding()
+                 .background(
+                     RoundedRectangle(cornerRadius: 16).fill(Color(.systemGray6)))
+                 .padding(.vertical, 5)
+                 .autocapitalization(.sentences)
                 VStack{
                     Text("Difficulty")
                         .font(.title2)
@@ -103,15 +116,27 @@ struct AddCache: View {
              }
         }
          .alert(isPresented: $showAlert) {
-                 Alert(title: Text("Error"), message: Text("One or more fields is empty."), dismissButton: .default(Text("Fix")))
+                 Alert(title: Text(alertTitle), message: Text(alertDesc), dismissButton: .default(Text(alertBtn)))
          }
     }
     
     func submitForm(){
         if(title.isEmpty || desc.isEmpty){
+            alertTitle = "Error"
+            alertDesc = "One or more fields is empty."
+            alertBtn = "Fix"
             showAlert = true
         } else{
-            print("Name: \(title) Description: \(desc) Difficulty: \(difficulty) Size: \(size) Location: \(userLocation)")
+            ModelData().addCache(name: title, desc: desc, dif: difficulty, size: size, hint: hint, latitude: userLocation?.latitude ?? 0.0, longitude: userLocation?.longitude ?? 0.0)
+            alertTitle = "Success!"
+            alertDesc = "Your new cache is now published"
+            alertBtn = "Nice!"
+            showAlert = true
+            title = ""
+            desc = ""
+            hint = ""
+            difficulty = 1
+            size = 1
         }
     }
 }

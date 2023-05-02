@@ -54,6 +54,46 @@ final class ModelData: ObservableObject{
     }
     
     
+    func addCache(name: String, desc: String, dif: Int, size: Int, hint: String, userID: Int = 1, latitude: Double, longitude: Double) {
+        let url = URL(string: "https://gocache-api.herokuapp.com/api/caches/")!
+        let body: [String: Any] = [
+            "name": name,
+            "description": desc,
+            "difficulty": dif,
+            "size": size,
+            "hint": hint,
+            "userID": userID,
+            "latitude": latitude,
+            "longitude": longitude
+        ]
+        let jsonData = try! JSONSerialization.data(withJSONObject: body)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODIxNjA4Mzh9.dC5cFdXHQN_sIs1fBmuIuXngp-qYSyzqcH4recUCdiE", forHTTPHeaderField: "Authorization")
+        request.httpBody = jsonData
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            guard let data = data else {
+                print("Error: No data received")
+                return
+            }
+            do {
+                let result = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+
+    
+    
     func foundCache(cacheId: Int) {
                 let url = URL(string: "https://gocache-api.herokuapp.com/api/logs")!
                 // Create the request
