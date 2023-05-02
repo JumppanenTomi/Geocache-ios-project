@@ -5,6 +5,7 @@ struct ContentView: View {
     @StateObject private var userViewModel = UserViewModel(user: User(name: "John Doe", profileImage: UIImage(systemName: "person.crop.circle.fill")!, bio: "I love geocaching!", cachesFound: 42, cachesCreated: 10))
     @State private var activeLink: Int?
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @StateObject private var modelData: ModelData = ModelData()
 
     var body: some View {
         Group {
@@ -14,7 +15,7 @@ struct ContentView: View {
                         ZStack {
                             if selectedTab == 0 {
                                 Home()
-                                    .environmentObject(ModelData())
+                                    .environmentObject(modelData)
                                     .environmentObject(LocationManager())
                                     .transition(.slide)
                             } else if selectedTab == 1 {
