@@ -6,6 +6,8 @@ struct ContentView: View {
     @State private var activeLink: Int?
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @StateObject private var modelData: ModelData = ModelData()
+    @StateObject private var locationManager: LocationManager = LocationManager()
+
 
     var body: some View {
         Group {
@@ -16,7 +18,7 @@ struct ContentView: View {
                             if selectedTab == 0 {
                                 Home()
                                     .environmentObject(modelData)
-                                    .environmentObject(LocationManager())
+                                    .environmentObject(locationManager)
                                     .transition(.slide)
                             } else if selectedTab == 1 {
                                 AddCache()
