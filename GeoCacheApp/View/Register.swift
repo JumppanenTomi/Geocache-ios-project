@@ -5,6 +5,9 @@ struct Register: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     @Environment(\.presentationMode) var presentationMode
+    @StateObject private var authAPI = AuthAPI()
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationView {
@@ -43,9 +46,23 @@ struct Register: View {
                     .padding(.bottom, 20)
                 
                 Button(action: {
-                    // Perform registration action
-                    // Navigate back to the login page upon successful registration
-                    presentationMode.wrappedValue.dismiss()
+                    if password == confirmPassword {
+                        authAPI.register(username: email, password: password) { success in
+                            if success {
+                                DispatchQueue.main.async {
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    alertMessage = "Registration failed. Please try again."
+                                    showAlert = true
+                                }
+                            }
+                        }
+                    } else {
+                        alertMessage = "Passwords do not match."
+                        showAlert = true
+                    }
                 }) {
                     Text("Sign up")
                         .font(.headline)
@@ -56,6 +73,9 @@ struct Register: View {
                         .shadow(radius: 2)
                 }
                 .padding(.bottom, 20)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
                 
                 NavigationLink(destination: Login(isLoggedIn: .constant(false))) {
                     Text("Already have an account? Login")
@@ -69,4 +89,3 @@ struct Register: View {
         }
     }
 }
-
